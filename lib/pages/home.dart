@@ -9,6 +9,8 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  Map data = {};
+
   void getVientianeTime() async{
     Response response = await get("http://worldtimeapi.org/api/timezone/Asia/Vientiane");
     Map vientianeTime = jsonDecode(response.body);
@@ -36,6 +38,8 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
+    data = ModalRoute.of(context).settings.arguments;
+
     return Scaffold(
       appBar: AppBar(
         title: Text("WORLD TIME"),
