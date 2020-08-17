@@ -4,6 +4,7 @@ import 'package:intl/intl.dart';
 
 class WorldTime{
   String location, time, flag, url;
+  bool isDaytime;
   WorldTime({this.location, this.flag, this.url});
 
   Future<void> getTime() async{
@@ -17,6 +18,8 @@ class WorldTime{
       String offset = vientianeTime['utc_offset'].substring(1,3);
       DateTime now = DateTime.parse(datetime);
       now.add(Duration(hours: int.parse(offset)));
+      isDaytime = now.hour > 6 && now.hour < 20?true:false;
+
       time = DateFormat.jm().format(now);
 //      time = now.toString();
     }catch(e){

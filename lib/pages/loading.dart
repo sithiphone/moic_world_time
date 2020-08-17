@@ -16,7 +16,8 @@ class _LoadingState extends State<Loading> {
     Navigator.pushReplacementNamed(context, "/", arguments: {
       'location' : world_time.location,
       'flag' : world_time.flag,
-      'time' : world_time.time
+      'time' : world_time.time,
+      'isDaytime' : world_time.isDaytime
     });
     setState(() {
       time = world_time.time;
@@ -39,7 +40,7 @@ class _LoadingState extends State<Loading> {
         title: Text("Vientiane time"),
       ),
       body: Center(
-        child: SpinKitDoubleBounce(
+        child: SpinKitPouringHourglass(
           color: Colors.white,
           size: 50.0,
         ),
