@@ -39,10 +39,36 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     data = ModalRoute.of(context).settings.arguments;
-
+    print("Data from loading: $data");
     return Scaffold(
       appBar: AppBar(
         title: Text("WORLD TIME"),
+      ),
+      body: SafeArea(
+        child: Padding(
+          padding: EdgeInsets.fromLTRB(0.0, 120.0, 0.0, 0.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              FlatButton.icon(
+                  onPressed: (){
+
+                  },
+                  icon: Icon(Icons.edit_location),
+                  label: Text("Edit location")
+              ),
+              SizedBox(height: 20.0,),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(data['location'], style: TextStyle(fontSize: 28.0, letterSpacing: 2.0),),
+                ],
+              ),
+              SizedBox(height: 20.0,),
+              Text(data['time'], style: TextStyle(fontSize: 70.0),)
+            ],
+          ),
+        ),
       ),
     );
   }
