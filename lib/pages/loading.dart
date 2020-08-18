@@ -22,7 +22,6 @@ class _LoadingState extends State<Loading> {
     setState(() {
       time = world_time.time;
     });
-
     print("Current time: $time");
   }
 
